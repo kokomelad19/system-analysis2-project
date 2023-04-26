@@ -2,13 +2,17 @@
   "name": "instructor-service",
   "version": "1.0.0",
   "description": "this instructor service to public courses to students",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
   },
   "author": "Faculty Team",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "kafkajs": "^2.2.4"
   }
 }
