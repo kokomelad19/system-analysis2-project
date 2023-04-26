@@ -27,7 +27,7 @@ Course.init(
       allowNull: false,
     },
   },
-  { sequelize, modelName: "Course" }
+  { sequelize, modelName: "courses" }
 );
 
 module.exports = Course;

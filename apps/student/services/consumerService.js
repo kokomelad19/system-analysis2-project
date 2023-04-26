@@ -1,7 +1,7 @@
 const consumer = require("../kafka");
 const { createCourseService } = require("./coursesService");
 
-(async () => {
+const startKafkaConsumerService = async () => {
   try {
     await consumer.connect();
     await consumer.subscribe({
@@ -12,7 +12,7 @@ const { createCourseService } = require("./coursesService");
     await consumer.run({
       eachMessage: async ({ topic, partition, message }) => {
         console.log(
-          `\n\nMessage Received ✅🔥 \nKey = ${message.key.toString()}\n\nmessage = ${message.value.toString()}\ntopic= ${topic}`
+          `\n\nMessage Received ✅🔥 \nKey = ${message.key.toString()}\n\nmessage = ${message.value.toString()}\n\ntopic= ${topic}\n\n`
         );
 
         switch (message.key.toString().trim()) {
@@ -28,4 +28,6 @@ const { createCourseService } = require("./coursesService");
     console.log("Kafka Consumer Error ", err);
     throw err;
   }
-})();
+};
+
+module.exports = startKafkaConsumerService;

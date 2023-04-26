@@ -3,7 +3,9 @@ const { createCourseService } = require("../services/coursesService");
 
 exports.createCourseController = async (req, res) => {
   try {
-    await createCourseService(new Course(req.body));
+    const course = new Course(req.body);
+    await createCourseService(course);
+    return res.status(201).json(course);
   } catch (err) {
     return res.status(400).json({ err });
   }
