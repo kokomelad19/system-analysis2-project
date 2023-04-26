@@ -8,4 +8,18 @@ const kafka = new Kafka({
 
 const producer = kafka.producer();
 
-module.exports = producer;
+const connectProducer = async () => {
+  await producer.connect();
+  console.log("Producer Connected Successfully");
+};
+
+const disconnectProducer = async () => {
+  await producer.disconnect();
+  console.log("Producer disconnected Successfully");
+};
+
+module.exports = {
+  producer,
+  connectProducer,
+  disconnectProducer,
+};
