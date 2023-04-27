@@ -3,7 +3,7 @@ const { Kafka, logLevel } = require("kafkajs");
 const kafka = new Kafka({
   clientId: "instructor-student",
   brokers: [process.env.KAFKA_BROKER],
-  logLevel: logLevel.DEBUG,
+  logLevel: logLevel.ERROR,
 });
 
 const producer = kafka.producer();
