@@ -43,8 +43,6 @@ services:
       - ./.env
     ports:
       - "${EXPOSED_PORT_INSTRUCTOR}:${PORT}"
-    volumes:
-      - ./apps/instructor:/app
     depends_on:
       - kafka
 
@@ -57,8 +55,6 @@ services:
       - "${EXPOSED_PORT_STUDENT}:${PORT}"
     environment:
       - MYSQL_HOST=mysql
-    volumes:
-      - ./apps/student:/app
     depends_on:
       - kafka
       - mysql
